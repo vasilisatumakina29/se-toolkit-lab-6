@@ -61,6 +61,9 @@ Example: `https://github.com/nixos/nixpkgs/tree/26eaeac4e409d7b5a6bf6f90a2a2dc22
 
 ## Set up `Nix`
 
+> [!NOTE]
+> Downloads via `Nix` might be slow in Russia.
+
 Complete these steps:
 
 1. [Install `Nix`](#install-nix).
