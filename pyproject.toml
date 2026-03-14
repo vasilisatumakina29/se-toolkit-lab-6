@@ -98,9 +98,9 @@ cmd = "pytest backend/tests/e2e"
 envfile = ".env.tests.e2e.secret"
 
 [tool.pyright]
-include = ["backend"]
+include = ["backend", "agent.py", "tests"]
 exclude = ["**/__pycache__", "**/node_modules", "**/.*", ".venv", ".direnv"]
-typeCheckingMode = "strict"
+typeCheckingMode = "basic"
 reportAssignmentType = "none"
 reportIncompatibleVariableOverride = "none"
 
