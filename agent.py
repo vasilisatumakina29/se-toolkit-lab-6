@@ -597,10 +597,20 @@ def main():
     """Main entry point."""
     # Parse command-line arguments
     if len(sys.argv) < 2:
-        print('Usage: uv run agent.py "Your question here"', file=sys.stderr)
-        sys.exit(1)
-
-    question = sys.argv[1]
+        # Try reading from environment variable if no argument provided
+        question = os.getenv("AGENT_QUESTION")
+        if not question:
+            # Try reading from stdin
+            question = sys.stdin.read().strip()
+        if not question:
+            print('Usage: uv run agent.py "Your question here"', file=sys.stderr)
+            sys.exit(1)
+    elif len(sys.argv) == 2:
+        question = sys.argv[1]
+    else:
+        # Multiple arguments - join them (handles unquoted special chars)
+        question = " ".join(sys.argv[1:])
+    
     project_root = Path(__file__).parent
 
     # Load configuration
