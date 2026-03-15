@@ -351,6 +351,7 @@ Maximum 20 tool calls per question prevents infinite loops and excessive API usa
   - Set `AGENT_API_BASE_URL=http://localhost:42001` to bypass Caddy
   - Added explicit keyword requirements for wiki questions
   - Added step-by-step instructions for each question type
+  - Added stdin and env variable support for autochecker compatibility
 
 ## Final Architecture Summary
 

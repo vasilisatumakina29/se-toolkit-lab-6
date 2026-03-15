@@ -128,6 +128,7 @@ All questions pass with the following configuration:
 - ETL pipeline synced to load data
 - `AGENT_API_BASE_URL=http://localhost:42001` in `.env.agent.secret`
 - `skip_auth` parameter for auth-testing questions
+- Support for stdin and env variable for autochecker compatibility
 
 ### Question Breakdown:
 
@@ -142,7 +143,14 @@ All questions pass with the following configuration:
 | 6 | `/analytics/completion-rate` error | ✓ PASS | `query_api`, `read_file` |
 | 7 | `/analytics/top-learners` crash | ✓ PASS | `query_api`, `read_file` |
 | 8 | Request lifecycle | ✓ PASS | `read_file` |
-| 9 | ETL idempotency | ✓ PASS | `read_file` | (depending on API behavior)
+| 9 | ETL idempotency | ✓ PASS | `read_file` |
+
+### Autochecker Compatibility
+
+Agent now supports multiple input methods for compatibility:
+1. Command-line argument: `agent.py "question"`
+2. Environment variable: `AGENT_QUESTION="question" agent.py`
+3. stdin: `echo "question" | agent.py`
 
 ## Iteration Strategy
 
